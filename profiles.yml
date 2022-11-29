@@ -1,0 +1,17 @@
+config:
+  partial_parse: true
+  printer_width: 120
+  send_anonymous_usage_stats: false
+  use_colors: true
+snapshot_transformation:
+  outputs:
+    prod:
+      dbname: postgres
+      host: localhost
+      pass: admin123
+      port: 5432
+      schema: public
+      threads: 8
+      type: postgres
+      user: admin
+  target: prod
