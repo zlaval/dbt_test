@@ -10,7 +10,7 @@ snapshot_transformation:
       host: localhost
       pass: admin123
       port: 5432
-      schema: public
+      schema: test
       threads: 8
       type: postgres
       user: admin
