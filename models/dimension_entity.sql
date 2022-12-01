@@ -1,11 +1,11 @@
 
 {{ 
     config(
-        materialized='incremental'
-        unique_key='event_id'
+        materialized='incremental',
+        unique_key='event_id',
         incremental_strategy='insert_overwrite'
         ) 
-}}
+}} 
 
     select
     cm.author as change_author,
