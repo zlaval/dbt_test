@@ -1,7 +1,5 @@
 
-{{ config(materialized='table') }}
-
-with data_source as (
+{{ config(materialized='incremental') }}
 
     select
     base._id as snapshot_id,
@@ -33,7 +31,6 @@ with data_source as (
                                  on st._airbyte_state_hashid = var._airbyte_state_hashid
             where gi.entity = 'so.flawless.apigateway.event.EventEntity'
 
-)
-
-select * from data_source
-
+{% if is_incremental() %}
+    and base._airbyte_emitted_at > (select max(_airbyte_emitted_a) from public.fact_event_change)
+{% endif %}
