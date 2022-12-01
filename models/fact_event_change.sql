@@ -1,5 +1,5 @@
 
-{{ config(materialized='incremental') }}
+{{ config(materialized='table') }}
 
     select
     base._id as snapshot_id,
@@ -31,6 +31,6 @@
                                  on st._airbyte_state_hashid = var._airbyte_state_hashid
             where gi.entity = 'so.flawless.apigateway.event.EventEntity'
 
-{% if is_incremental() %}
-   and base._airbyte_emitted_at > (select coalesce(max(_airbyte_emitted_at),CURRENT_DATE - interval '5' minute) from public.fact_event_change)
-{% endif %}
+--{% if is_incremental() %}
+  -- and base._airbyte_emitted_at > (select coalesce(max(_airbyte_emitted_at),CURRENT_DATE - interval '5' minute) from public.fact_event_change)
+--{% endif %}
