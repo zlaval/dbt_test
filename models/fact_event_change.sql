@@ -4,7 +4,7 @@
     select
     base._id as snapshot_id,
     base.type as operation_type,
-    base.version as event_version,
+    base.version_aibyte_transform as event_version,
     base.globalid_key as snapshot_group_key,
     cm.id as snapshot_commit_id,
     cm.author as change_author,
@@ -12,7 +12,7 @@
     gi.entity as entity_class,
     gi.cdoid as event_id,
     st.createdat as event_created_at,
-    st.sequencenumber as event_sequence_number,
+    st.sequencenumber_aibyte_transform as event_sequence_number,
     st.monitorid as event_monitor_id,
     st.name as event_name,
     st.description as event_description,

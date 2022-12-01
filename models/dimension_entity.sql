@@ -12,7 +12,7 @@
     gi.entity as entity_class,
     gi.cdoid as event_id,
     st.createdat as event_created_at,
-    st.sequencenumber as event_sequence_number,
+    st.sequencenumber_aibyte_transform as event_sequence_number,
     st.monitorid as event_monitor_id,
     st.name as event_name,
     st.description as event_description,
