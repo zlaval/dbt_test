@@ -32,5 +32,5 @@
             where gi.entity = 'so.flawless.apigateway.event.EventEntity'
 
 {% if is_incremental() %}
-    and base._airbyte_emitted_at > (select coalesce(max(_airbyte_emitted_a),CURRENT_DATE - interval '5' minute) from public.fact_event_change)
+    and base._airbyte_emitted_at > (select coalesce(max(_airbyte_emitted_at),CURRENT_DATE - interval '5' minute) from public.fact_event_change)
 {% endif %}
