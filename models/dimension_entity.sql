@@ -1,14 +1,14 @@
 
-{{ config(materialized='incremental') }}
+{{ 
+    config(
+        materialized='incremental'
+        unique_key='event_id'
+        incremental_strategy='insert_overwrite'
+        ) 
+}}
 
     select
-    base._id as snapshot_id,
-    base.type as operation_type,
-    base.version as event_version,
-    base.globalid_key as snapshot_group_key,
-    cm.id as snapshot_commit_id,
     cm.author as change_author,
-    cm.commitdateinstant as snapshot_crated_at,
     gi.entity as entity_class,
     gi.cdoid as event_id,
     st.createdat as event_created_at,
@@ -32,5 +32,5 @@
             where gi.entity = 'so.flawless.apigateway.event.EventEntity'
 
 {% if is_incremental() %}
-   and base._airbyte_emitted_at > (select coalesce(max(_airbyte_emitted_a),CURRENT_DATE - interval '5' minute) from public.fact_event_change)
+    and base._airbyte_emitted_at > (select coalesce(max(_airbyte_emitted_a),CURRENT_DATE - interval '5' minute) from public.fact_event_change)
 {% endif %}
