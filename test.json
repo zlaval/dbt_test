@@ -1,0 +1,48 @@
+{
+    "_id": "637dd6339feba53ed70f5bf1",
+    "type": "INITIAL",
+    "state": {
+        "id": "mLD1BDpMSQqYkiFsdTMofz",
+        "name": "Zalan Test Postgres Monitor (#1)",
+        "status": "OPEN",
+        "ownerId": "google-apps|zalan.toth@flawless.so",
+        "playbook": "",
+        "priority": "MEDIUM",
+        "createdAt": "2022-11-18T12:12:00.570Z",
+        "monitorId": "cg2KUydiDSczRQQWVeBZiG",
+        "variables": {
+            "id": "3",
+            "name": "Superman",
+            "value": "10",
+            "eventid": "mLD1BDpMSQqYkiFsdTMofz"
+        },
+        "description": "Record ID: {clientid}",
+        "sequenceNumber": 1
+    },
+    "globalId": {
+        "cdoId": "mLD1BDpMSQqYkiFsdTMofz",
+        "entity": "so.flawless.apigateway.event.EventEntity"
+    },
+    "globalId_key": "so.flawless.apigateway.event.EventEntity/mLD1BDpMSQqYkiFsdTMofz",
+    "commitMetadata": {
+        "id": 6777980345804150087,
+        "author": "system",
+        "commitDate": "2022-11-18T12:12:00.57",
+        "properties": [],
+        "commitDateInstant": "2022-11-18T12:12:00.570Z"
+    },
+    "changedProperties": [
+        "createdAt",
+        "sequenceNumber",
+        "variables",
+        "monitorId",
+        "name",
+        "description",
+        "id",
+        "ownerId",
+        "priority",
+        "status",
+        "playbook"
+    ],
+    "version_aibyte_transform": "1"
+}
