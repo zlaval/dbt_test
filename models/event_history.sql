@@ -1,5 +1,5 @@
 
-{{ config(materialized='table') }}
+{{ config(materialized='incremental') }}
 
 
 select
