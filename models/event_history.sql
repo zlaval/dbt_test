@@ -37,5 +37,8 @@ select
         _airbyte_data -> 'changedProperties' as changedProperties
     from test._airbyte_raw_jv_snapshots
    where _airbyte_data @> '{"globalId": {"entity": "so.flawless.apigateway.event.EventEntity"}}'
+
+{% if is_incremental() %}
    and  _airbyte_emitted_at > (select coalesce(max(_airbyte_emitted_at),now() - interval '5' minute) from public.event_history)
+{% endif %}
 ) data
