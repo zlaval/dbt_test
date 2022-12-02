@@ -39,6 +39,6 @@ select
    where _airbyte_data @> '{"globalId": {"entity": "so.flawless.apigateway.event.EventEntity"}}'
 
 {% if is_incremental() %}
-   and  _airbyte_emitted_at > (select coalesce(max(_airbyte_emitted_at),now() - interval '5' minute) from public.event_history)
+   and  _airbyte_emitted_at > (select coalesce(max(emitted_at),now() - interval '5' minute) from public.event_history)
 {% endif %}
 ) data
