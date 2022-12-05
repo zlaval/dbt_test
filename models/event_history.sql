@@ -40,7 +40,12 @@ select
         _airbyte_data -> 'commitMetadata' as commitMetadata,
         _airbyte_data -> 'state' as state,
         _airbyte_data -> 'changedProperties' as changedProperties
-    from test._airbyte_raw_jv_snapshots
+from
+    {% if env_var('DBT_ENVIRONMENT','dev') = prod %}
+      test.jv_snapshots
+    {% else %}
+            test._airbyte_raw_jv_snapshots
+    {% endif %}
    where _airbyte_data @> '{"globalId": {"entity": "so.flawless.apigateway.event.EventEntity"}}'
 
 {% if is_incremental() %}
