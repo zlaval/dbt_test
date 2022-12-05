@@ -41,7 +41,7 @@ select
         _airbyte_data -> 'state' as state,
         _airbyte_data -> 'changedProperties' as changedProperties
 from
-    {% if env_var('DBT_ENVIRONMENT','dev') = prod %}
+    {% if env_var('DBT_ENVIRONMENT','dev') == prod %}
       test.jv_snapshots
     {% else %}
             test._airbyte_raw_jv_snapshots
