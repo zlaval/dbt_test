@@ -1,5 +1,10 @@
 
-{{ config(materialized='incremental') }}
+{{ config(
+    materialized='incremental',
+    indexes=[
+        {'conumns': ['emitted_at','ownerId'], 'type': 'b-tree'}
+    ]  
+    ) }}
 
 
 select
