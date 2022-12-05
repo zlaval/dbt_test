@@ -2,7 +2,7 @@
 {{ config(
     materialized='incremental',
     indexes=[
-        {'columns': ['emitted_at','ownerId'], 'type': 'b-tree'}
+        {'columns': ['emitted_at','ownerId'], 'type': 'btree'}
     ]  
     ) }}
 
